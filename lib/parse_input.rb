@@ -11,12 +11,11 @@ class ParseInput
     @object = input.shift
     @args = input
     create_object
-    puts "Nice! Next command?"
-    MiniKick.new.run
+    MiniKick.new.call
   end
 
   def create_object
-    COMMAND_TYPES[object].new(args)
+    COMMAND_TYPES[object].create(args)
   end
 
   private

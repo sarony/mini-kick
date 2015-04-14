@@ -1,3 +1,4 @@
+require "pry"
 class Back
   attr_reader :args, :backer, :project, :cc_number, :backing_amount, :errors
   BACKER_FORMAT = /^[a-zA-Z0-9-_]+$/
@@ -113,7 +114,7 @@ class Back
     if cc_valid?
       true
     else
-      errors << I18n.t("back.errors.credit_card.invalid_luhn_10")
+      errors << I18n.t("back.errors.credit_card.invalid_luhn")
       false
     end
   end

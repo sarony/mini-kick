@@ -1,6 +1,10 @@
 require "spec_helper"
 
 describe Backer do
+  before(:each) { Project.destroy_all }
+  before(:each) { Back.destroy_all }
+  before(:each) { Back.clear_cc_numbers }
+
   describe ".initialize" do
     it "takes a name and sets a back" do
       project = Project.create(["project", "44"])

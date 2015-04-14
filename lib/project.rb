@@ -12,8 +12,8 @@ class Project
 
   def self.create(args)
     project = new(args)
-    project.tap do |p|
-      p.save
+    if project.save
+      puts I18n.t("projects.success", name: project.name, target_amount:project.target_amount)
     end
   end
 
@@ -72,7 +72,7 @@ class Project
   end
 
   def has_reached_goal
-    amount_needed < 0
+    amount_needed <= 0
   end
 
   def amount_needed

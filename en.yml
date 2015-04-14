@@ -15,8 +15,7 @@ en:
       credit_card:
         invalid_format: "Credit card must contain only numbers"
         invalid_length: "Credit card can be up to 19 numbers long"
-        invalid_length: "Credit card can be up to 19 numbers long"
-        duplicate: "Credit card is not unique"
+        invalid_luhn: "ERROR: This card is invalid"
+        duplicate: "ERROR: That card has already been added by another user!"
       backing_amount:
         invalid_format: "Invalid target amount format"
-

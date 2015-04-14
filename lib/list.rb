@@ -3,12 +3,16 @@ class List
 
   def initialize(args)
     @project = set_project(args.first)
-    project_info
+  end
+
+  def self.create(args)
+    list = new(args)
+    list.project_info
   end
 
   def project_info
     backers = project.backs.collect do |back|
-      "-- #{back.backer} backed #{project.name} for #{back.backing_amount}\n"
+      "-- #{back.backer} backed #{project.name} for $#{back.backing_amount}\n"
     end.join("")
 
     puts "#{backers} #{project.status}"
@@ -17,7 +21,7 @@ class List
   private
 
   def project_needs
-    puts "#{project.name} needs #{project.amount_needed} more dollars to be successful"
+    puts "#{project.name} needs $#{project.amount_needed} more dollars to be successful"
   end
 
   def set_project(project_name)

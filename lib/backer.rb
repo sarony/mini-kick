@@ -4,7 +4,11 @@ class Backer
   def initialize(args)
     @name = args.first
     @back = set_back
-    show_info
+  end
+
+  def self.create(args)
+    backer = new(args)
+    backer.show_info
   end
 
   def show_info
