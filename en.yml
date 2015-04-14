@@ -1,0 +1,22 @@
+en:
+  projects:
+    errors:
+      target_amount:
+        invalid_format: "Invalid target amount format"
+      name:
+        invalid_length: "Project name must be between 4 and 20 characters long"
+        invalid_format: "Project name has forbidden characters"
+    success: "Added %{name} project with target of %{target_amount}"
+  back:
+    errors:
+      backer_name:
+        invalid_format: "Backer name has forbidden characters"
+        invalid_length: "Backer name must be between 4 and 20 characters long"
+      credit_card:
+        invalid_format: "Credit card must contain only numbers"
+        invalid_length: "Credit card can be up to 19 numbers long"
+        invalid_length: "Credit card can be up to 19 numbers long"
+        duplicate: "Credit card is not unique"
+      backing_amount:
+        invalid_format: "Invalid target amount format"
+
