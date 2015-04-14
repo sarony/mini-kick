@@ -18,6 +18,7 @@ describe List do
   end
 
   describe ".project_info" do
+    # TODO: needs to test output
     it "lists backers and backed amounts for a project" do
       project = Project.create(["project", "44"])
       back = Back.create(["backer", "project", "49927398716", "20"])

@@ -6,7 +6,7 @@ en:
       name:
         invalid_length: "Project name must be between 4 and 20 characters long"
         invalid_format: "Project name has forbidden characters"
-    success: "Added %{name} project with target of %{target_amount}"
+    success: "Added %{name} project with target of $%{target_amount}"
   back:
     errors:
       backer_name:

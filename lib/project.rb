@@ -2,6 +2,7 @@ class Project
   attr_reader :name, :target_amount, :errors
   NAME_FORMAT = /^[a-zA-Z0-9-_]+$/
   TARGET_AMOUNT_FORMAT = /^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$/
+
   @@all=[]
 
   def initialize(args)
@@ -12,8 +13,8 @@ class Project
 
   def self.create(args)
     project = new(args)
-    if project.save
-      puts I18n.t("projects.success", name: project.name, target_amount:project.target_amount)
+    project.tap do |p|
+      p.save
     end
   end
 
@@ -34,6 +35,7 @@ class Project
   def save
     if valid?
       @@all << self
+      puts I18n.t("projects.success", name: name, target_amount: target_amount)
     else
       puts errors.join(". ")
     end

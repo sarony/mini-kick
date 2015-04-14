@@ -19,6 +19,7 @@ describe Backer do
   end
 
   describe "#show_info" do
+    # TODO: needs to show output
     it "shows what the backer's backed and their backing_amount" do
       project = Project.create(["project", "44"])
       back = Back.create(["John", "project", "49927398716", "20"])

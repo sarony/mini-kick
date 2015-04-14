@@ -8,9 +8,9 @@ describe Back do
   describe "#project" do
     it "returns the associated project" do
       project = Project.create(["Backed", "30"])
-      back = Back.new(["backer", "Backed", "79927398713", "40"])
+      back = Back.create(["backer", "Backed", "79927398713", "40"])
 
-      expect(back.project).to eq(project)
+      expect(back.project).to be_a(Project)
     end
   end
 
@@ -42,7 +42,7 @@ describe Back do
       project = Project.create(["Backed", "30"])
       back = Back.create(["backer", "Backed", "79927398713", "40"])
 
-      found_back = Back.find_all_by_project(project)
+      found_back = Back.find_all_by_project(back.project)
 
       expect(found_back).to include(back)
     end
@@ -104,7 +104,7 @@ describe Back do
       back = Back.new(["Backer", "Backed", "79927398714", "40"])
 
       expect(back.valid?).to eq(false)
-      expect(back.errors).to include(I18n.t("back.errors.credit_card.invalid_luhn_10"))
+      expect(back.errors).to include(I18n.t("back.errors.credit_card.invalid_luhn"))
     end
 
     it "returns false and has an error if credit card isn't unique" do

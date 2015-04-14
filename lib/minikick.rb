@@ -28,4 +28,4 @@ class MiniKick
   end
 end
 
-MiniKick.new.run
+# MiniKick.new.run
