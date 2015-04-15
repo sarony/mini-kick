@@ -28,7 +28,11 @@ describe Backer do
       backer_info = backer.show_info
 
       expect(backer_info).to eq(
-        "Backed #{project.name} for #{back.backing_amount}"
+        I18n.t(
+          "backer.show_info",
+          project_name: back.project.name,
+          backing_amount: back.backing_amount
+        )
       )
     end
   end

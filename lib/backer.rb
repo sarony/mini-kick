@@ -8,11 +8,15 @@ class Backer
 
   def self.create(args)
     backer = new(args)
-    backer.show_info
+    puts backer.show_info
   end
 
   def show_info
-    puts "-- Backed #{back.project.name} for #{back.backing_amount}"
+    I18n.t(
+      "backer.show_info",
+      project_name: back.project.name,
+      backing_amount: back.backing_amount
+    )
   end
 
   private

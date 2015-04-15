@@ -7,22 +7,23 @@ class List
 
   def self.create(args)
     list = new(args)
-    list.project_info
+    puts list.project_info
   end
 
   def project_info
     backers = project.backs.collect do |back|
-      "-- #{back.backer} backed #{project.name} for $#{back.backing_amount}\n"
+      I18n.t(
+        "list.backer_info",
+        backer: back.backer,
+        project_name: project.name,
+        backing_amount: back.backing_amount,
+      )
     end.join("")
 
-    puts "#{backers} #{project.status}"
+    "#{backers} #{project.status}"
   end
 
   private
-
-  def project_needs
-    puts "#{project.name} needs $#{project.amount_needed} more dollars to be successful"
-  end
 
   def set_project(project_name)
     Project.find_by_name(project_name)

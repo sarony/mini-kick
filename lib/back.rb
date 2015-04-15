@@ -1,7 +1,7 @@
 require "pry"
 class Back
   attr_reader :args, :backer, :project, :cc_number, :backing_amount, :errors
-  BACKER_FORMAT = /^[a-zA-Z0-9-_]+$/
+  BACKER_FORMAT = /^[-a-zA-Z0-9_]+$/
   BACKING_AMOUNT_FORMAT = /^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$/
   CREDIT_CARD_FORMAT = /^[0-9]+$/
   @@all = []
@@ -161,11 +161,7 @@ class Back
     backing_amount =~ BACKING_AMOUNT_FORMAT
   end
 
-  def error_message
-    "This back isn't valid. Please use the following format: "
-  end
-
   def success_message
-    "#{backer} backed project #{project.name} for $#{backing_amount}"
+    I18n.t("back.success", backer: backer, project_name: project.name, backing_amount: backing_amount)
   end
 end

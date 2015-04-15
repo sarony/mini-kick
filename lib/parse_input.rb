@@ -21,4 +21,5 @@ class ParseInput
   private
 
   attr_reader :object, :args
+
 end

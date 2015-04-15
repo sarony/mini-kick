@@ -54,7 +54,7 @@ describe Project do
 
       status = project.status
 
-      expect(status).to eq("#{project.name} needs 40 more dollars to be successful")
+      expect(status).to eq("#{project.name} needs $40 more dollars to be successful")
     end
 
     it "tells us when the project is successful" do

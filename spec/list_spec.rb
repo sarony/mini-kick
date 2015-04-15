@@ -27,7 +27,12 @@ describe List do
       project_info = list.project_info
 
       expect(project_info).to eq(
-        "#{back.backer} backed for #{back.backing_amount}"
+        "#{I18n.t(
+          "list.backer_info",
+          backer_name: back.backer,
+          project_name: project.name,
+          backing_amount: back.backing_amount,
+        )} #{project.status}"
       )
     end
   end

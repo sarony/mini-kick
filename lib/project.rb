@@ -1,6 +1,6 @@
 class Project
   attr_reader :name, :target_amount, :errors
-  NAME_FORMAT = /^[a-zA-Z0-9-_]+$/
+  NAME_FORMAT = /^[-a-zA-Z0-9_]+$/
   TARGET_AMOUNT_FORMAT = /^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$/
 
   @@all=[]
@@ -66,11 +66,11 @@ class Project
   private
 
   def in_progress_message
-    "#{name} needs #{amount_needed} more dollars to be successful"
+    I18n.t("projects.in_progress", name: name, amount_needed: amount_needed)
   end
 
   def successful_message
-    "#{name} is successful!"
+    I18n.t("projects.successful", name: name)
   end
 
   def has_reached_goal
